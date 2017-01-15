@@ -1,0 +1,9 @@
+<!--view标签和html中的div标签功能类似-->
+<!--px是物理分辨率，不同设备间显示不同；rpx单位是微信小程序中css的尺寸单位,rpx可以根据屏幕宽度进行自适应。-->
+<view class="container">
+    <image class="user_icon" src="/images/avatar/5.png"></image>
+    <text class="user_name">Hello!!</text>
+    <view class="moto_container" bindtap="onTap">
+         <text class="moto">开启小程序之旅</text>
+    </view>
+</view>

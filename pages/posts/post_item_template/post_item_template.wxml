@@ -1,0 +1,20 @@
+<template name="postItem">
+  <view class="post_container">
+    <view class="post_author_date">
+      <!--斜杠开头的为绝对路径，从跟目录开始往下找-->
+      <image class="post_author" src="{{avatar}}"></image>
+      <text class="post_date">{{date}}</text>
+    </view>
+    <text class="post_title">{{title}}</text>
+    <image class="post_image" src="{{imgSrc}}"></image>
+    <text class="post_content">{{content}}</text>
+    <view class="post_like">
+      <!--..开头的相对路径的写法，基准点为当前文件的位置，每两个点代表向上走一级，post.wxml向上走两级为根目录-->
+      <!--template中最好使用绝对路径-->
+      <image class="post_like_image" src="/images/icon/chat.png"></image>
+      <text class="post_like_font">{{reading}}</text>
+      <image class="post_like_image" src="/images/icon/view.png"></image>
+      <text class="post_like_font">{{collection}}</text>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,25 @@
+<import src="post_item_template/post_item_template.wxml" />
+<view>
+  <!--整个swiper的高宽应在swiper中设置，在swiper-item设置无效-->
+  <!--catchtap="onSwiperItemTap"本应该在每个swiper-item中设置，可用冒泡的处理方式在swiper处实现-->
+  <!--catchtap方式捕捉到响应后后，不会再往外层传递响应，而bindtap会继续向上层传递响应-->
+  <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="4000">
+    <!--swiper-item的高宽为swiper所设置的，其高宽自动设置为100%。其作用也只是一个容器-->
+    <swiper-item>
+      <image data-postId="0" src="/images/1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-postId="1" src="/images/2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-postId="0" src="/images/3.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="index">
+    <!--凡是以data-开头的称为自定义属性，且其元素均为小写-->
+    <view catchtap="onPostTap" data-postId="{{item.postId}}">
+      <!--is后面是你的模板名字,本来要用item.img代表img属性，三个点（...）代表把元素平铺展开-->
+      <template is="postItem" data="{{...item}}" />
+    </view>
+  </block>
+</view>
